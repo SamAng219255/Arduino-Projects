@@ -1,4 +1,4 @@
-cp ~/Arduino/sketches/* ./
+cp -r ~/Arduino/sketches/* ./
 git add --all
 git commit -m "updated"
 git push
