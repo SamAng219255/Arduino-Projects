@@ -1,5 +1,5 @@
-const int first=0;
-const int last=16;
+const int first=10;
+const int last=36;
 
 int iter=0;
 int active=0;
@@ -42,8 +42,8 @@ int num_array[40][8] = {  { 1,1,1,1,1,1,0,0 },    // 0
                           { 1,1,0,1,1,0,1,1 },    // Z
                           { 0,0,0,0,0,0,1,0 },    // -
                           { 0,1,1,0,1,1,0,0 },    // 11
-                          { 1,1,1,1,1,0,1,0 },    // 12
-                          { 1,0,0,1,0,0,1,0 }};
+                          { 1,0,0,1,0,0,1,0 },    // three bars
+                          { 0,0,0,0,0,0,0,0 }};   // blank
 void Num_Write(int number) {
   for (int j=0; j < 8; j++) {
    digitalWrite(j+5, num_array[number][j]);
@@ -90,4 +90,3 @@ void loop() {
     }
   }
 }
-
