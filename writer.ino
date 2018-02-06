@@ -1,5 +1,5 @@
 unsigned long previousmillis=0;
-int num_array[40][8] = {  { 1,1,1,1,1,1,0,0 },    // 0
+int num_array[44][8] = {  { 1,1,1,1,1,1,0,0 },    // 0
                           { 0,1,1,0,0,0,0,0 },    // 1
                           { 1,1,0,1,1,0,1,0 },    // 2
                           { 1,1,1,1,0,0,1,0 },    // 3
@@ -38,7 +38,11 @@ int num_array[40][8] = {  { 1,1,1,1,1,1,0,0 },    // 0
                           { 0,0,0,0,0,0,1,0 },    // -
                           { 0,0,0,0,0,0,0,1 },    // .
                           { 1,0,0,1,0,0,1,0 },    // three bars
-                          { 0,0,0,0,0,0,0,0 }};   // blank
+                          { 0,0,0,0,0,0,0,0 },    // blank
+                          { 0,0,0,1,0,0,0,0 },    // _
+                          { 0,1,0,0,0,0,0,0 },    // '
+                          { 1,1,0,0,1,0,1,0 },    // ?
+                          { 0,1,1,0,0,0,0,1 }};   // !
 void Num_Write(int number) {
   for (int j=0; j < 8; j++) {
    digitalWrite(j+5, num_array[number][j]);
@@ -158,7 +162,7 @@ int toindex(char income) {
   else if(income=='-') {
     outcome=36;
   }
-  else if(income=='.') {
+  else if(income=='.' or income==',') {
     outcome=37;
   }
   else if(income=='=') {
@@ -166,6 +170,18 @@ int toindex(char income) {
   }
   else if(income==' ') {
     outcome=39;
+  }
+  else if(income=='_') {
+    outcome=40;
+  }
+  else if(income=='\'') {
+    outcome=41;
+  }
+  else if(income=='?') {
+    outcome=42;
+  }
+  else if(income=='!') {
+    outcome=43;
   }
   return outcome;
 }
